@@ -9,11 +9,11 @@ st.set_page_config(page_title="Excel Viewer", layout="wide")
 # CONFIG – CHOOSE ONE MODE
 # -------------------------------------------------
 # MODE 1: BUNDLED FILE (put the Excel file in the same folder as app.py)
-EXCEL_PATH = "my_data.xlsx"
+EXCEL_PATH = "my_data.xlsm"
 
 # MODE 2: ONLINE FILE (direct download URL from OneDrive / Google Drive etc.)
 # If you have a direct download link, paste it here and leave EXCEL_PATH as backup.
-EXCEL_URL = ""  # e.g. "https://.../my_data.xlsx"
+EXCEL_URL = ""  # e.g. "https://.../my_data.xlsm"
 
 
 @st.cache_data
@@ -82,3 +82,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
