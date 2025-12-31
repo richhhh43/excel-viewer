@@ -4,6 +4,8 @@ from pathlib import Path
 
 st.set_page_config(page_title="Excel Viewer", layout="wide")
 st.title("Excel Viewer")
+if st.button("Refresh now"):
+    st.rerun()
 
 csv_path = Path("data/latest.csv")
 ts_path = Path("data/updated_at.txt")
