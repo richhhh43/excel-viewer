@@ -1,39 +1,45 @@
+
+import time
+from io import StringIO
 import streamlit as st
 import pandas as pd
 import requests
-from urllib.parse import quote
 
 st.set_page_config(page_title="Excel Viewer", layout="wide")
 st.title("Excel Viewer")
 
-# --- EDIT THIS TO MATCH YOUR REPO ---
 REPO = "richhhh43/excel-viewer"
 BRANCH = "main"
 BASE = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}/data"
-TS_URL = f"{BASE}/updated_at.txt"
-CSV_URL = f"{BASE}/latest.csv"
 
-# Cache fetches briefly so you don't hammer GitHub
+def u(name: str, token: str) -> str:
+    return f"{BASE}/{name}?v={token}"
+
+if "token" not in st.session_state:
+    st.session_state.token = str(int(time.time()))
+
+if st.button("Refresh now"):
+    st.session_state.token = str(int(time.time()))
+    st.cache_data.clear()
+    st.rerun()
+
 @st.cache_data(ttl=60)
 def fetch_text(url: str) -> str:
-    r = requests.get(url, timeout=20)
+    r = requests.get(url, timeout=20, headers={"Cache-Control": "no-cache"})
     r.raise_for_status()
     return r.text.strip()
 
 @st.cache_data(ttl=60)
 def fetch_csv(url: str) -> pd.DataFrame:
-    return pd.read_csv(url)
+    r = requests.get(url, timeout=20, headers={"Cache-Control": "no-cache"})
+    r.raise_for_status()
+    return pd.read_csv(StringIO(r.text))
 
-if st.button("Refresh now"):
-    st.cache_data.clear()
-    st.rerun()
+token = st.session_state.token
 
-published = fetch_text(TS_URL)
+published = fetch_text(u("updated_at.txt", token))
 st.caption(f"Published: {published}")
 
-# Use published timestamp as a cache-buster so GitHub CDN won't serve stale CSV
-cachebuster = quote(published)
-df = fetch_csv(f"{CSV_URL}?v={cachebuster}")
-
+df = fetch_csv(u("latest.csv", token))
 st.caption(f"Rows: {len(df):,} | Cols: {len(df.columns):,}")
 st.dataframe(df, use_container_width=True, hide_index=True)
