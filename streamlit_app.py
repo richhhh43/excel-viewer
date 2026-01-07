@@ -51,8 +51,7 @@ def fetch_csv(url: str) -> pd.DataFrame:
     return pd.read_csv(StringIO(r.text))
 
 
-def col_exists(df: pd.DataFrame, name: str) -> str | None:
-    # exact match first, then case-insensitive match
+def col_exists(df: pd.DataFrame, name: str):
     if name in df.columns:
         return name
     low = {str(c).strip().lower(): c for c in df.columns}
@@ -70,9 +69,6 @@ def normalize_percent_series(s: pd.Series) -> pd.Series:
 
 
 def normalize_number_series(s: pd.Series) -> pd.Series:
-    """
-    Ensure numbers are numeric (so they don't get treated as % / strings).
-    """
     return pd.to_numeric(s, errors="coerce")
 
 
@@ -97,7 +93,6 @@ try:
     df = fetch_csv(raw_at(csv_sha, CSV_PATH))
 
 except Exception:
-    # fallback: branch url with cache buster
     token = st.session_state.refresh_token
     published = fetch_text(raw_at(BRANCH, TS_PATH) + f"?v={token}")
     st.caption(f"Published: {published}")
@@ -106,33 +101,34 @@ except Exception:
 # Drop Excel "Unnamed" columns
 df = df.loc[:, ~df.columns.astype(str).str.match(r"^Unnamed", case=False, na=False)]
 
-# ---- Force specific formatting rules ----
+# Columns (case-insensitive)
 win_col = col_exists(df, "Win%")
 edge_col = col_exists(df, "Edge")
 odds_col = col_exists(df, "Odds")
 prop_col = col_exists(df, "Prop")
 
-# Percent columns
-percent_cols = [c for c in [win_col, edge_col] if c is not None]
-
-# Number columns that MUST NOT be percent
-number_cols = [c for c in [odds_col, prop_col] if c is not None]
-
 # Normalize values
-for c in percent_cols:
-    df[c] = normalize_percent_series(df[c])
+if win_col:
+    df[win_col] = normalize_percent_series(df[win_col])
+if edge_col:
+    df[edge_col] = normalize_percent_series(df[edge_col])
 
-for c in number_cols:
-    df[c] = normalize_number_series(df[c])
+if odds_col:
+    df[odds_col] = normalize_number_series(df[odds_col])
+if prop_col:
+    df[prop_col] = normalize_number_series(df[prop_col])
 
-# Build formatter: only Win% and Edge as %, Odds/Prop as numbers
+# Format: Win%/Edge as %, Odds 2dp, Prop 1dp
 fmt = {}
-for c in percent_cols:
-    fmt[c] = "{:.2%}"
-
-for c in number_cols:
-    # show up to 6 decimals but trim trailing zeros visually
-    fmt[c] = "{:.6f}"
+if win_col:
+    fmt[win_col] = "{:.2%}"
+if edge_col:
+    fmt[edge_col] = "{:.2%}"
+if odds_col:
+    fmt[odds_col] = "{:.2f}"   # 3.95
+if prop_col:
+    fmt[prop_col] = "{:.1f}"   # 232.5
 
 styler = df.style.format(fmt)
 st.dataframe(styler, width="stretch", hide_index=True)
+
