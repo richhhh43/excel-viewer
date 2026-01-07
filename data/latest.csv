@@ -3,13 +3,141 @@
 579,Jan 07 At 20:00,Toronto,Charlotte,BASKETBALL - NBA WINNING MARGIN,3.95,0.0,0.27425311775007355,0.08329981511279061,V 10+ edge
 553,Jan 07 At 20:00,Chicago,Detroit,BASKETBALL - NBA,1.9,232.5,0.5525,0.04974999999999996,TTl ov edge
 584,Jan 07 At 21:00,Phoenix,Memphis,BASKETBALL - NBA WINNING MARGIN,2.95,0.0,0.3445782583896757,0.016505862249543313,V 10+ edge
-527,Jan 07 At 22:30,Ottawa,Utah,HOCKEY - NHL,0.0,6.0,0.5124903425186712,0.014730878186969054,TTl ov edge
 541,Jan 07 At 20:30,Oliver Kapanen,Goals,HKY - GOAL SCORERS,3.9,0.5,0.2595639654463184,0.012299465240641627,Over
-525,Jan 07 At 20:00,Dallas,Washington,HOCKEY - NHL,0.0,6.0,0.5294575655333507,0.00596937451336621,TTl ov edge
 540,Jan 07 At 20:00,Mavrik Bourque,Goals,HKY - GOAL SCORERS,5.5,0.5,0.1826309067688378,0.00446998722860803,Over
 542,Jan 07 At 22:30,Fabian Zetterlund,Goals,HKY - GOAL SCORERS,5.25,0.5,0.19120079391333114,0.0038041680449885096,Over
 564,Jan 07 At 23:00,Milwaukee,Golden State,BASKETBALL - NBA,1.87,-5.5,0.535,0.00045000000000006146,H Spr Edge
 564,Jan 07 At 23:00,Milwaukee,Golden State,BASKETBALL - NBA,0.0,-5.5,0.535,0.00045000000000006146,H Spr Edge
+525,Jan 07 At 20:00,Dallas,Washington,HOCKEY - NHL,0.0,6.0,0.5294575655333507,0.0,TTl ov edge
+526,Jan 07 At 20:30,Calgary,Montreal,HOCKEY - NHL,0.0,6.0,0.5046296296296295,0.0,TTl ov edge
+527,Jan 07 At 22:30,Ottawa,Utah,HOCKEY - NHL,0.0,6.0,0.5124903425186712,0.0,TTl ov edge
+528,Jan 07 At 22:30,state Louis,Chicago,HOCKEY - NHL,0.0,5.0,,0.0,TTl ov edge
+529,Jan 07 At 23:30,San Jose,Los Angeles,HOCKEY - NHL,0.0,6.0,0.5183474467539132,0.0,TTl ov edge
+530,Jan 07 At 20:00,Dallas,Washington,HOCKEY - NHL H2H,0.0,0.0,,0.0,TTl ov edge
+531,Jan 07 At 20:30,Calgary,Montreal,HOCKEY - NHL H2H,0.0,0.0,,0.0,TTl ov edge
+532,Jan 07 At 22:30,Ottawa,Utah,HOCKEY - NHL H2H,0.0,0.0,,0.0,TTl ov edge
+533,Jan 07 At 22:30,state Louis,Chicago,HOCKEY - NHL H2H,0.0,0.0,,0.0,TTl ov edge
+534,Jan 07 At 23:30,San Jose,Los Angeles,HOCKEY - NHL H2H,0.0,0.0,,0.0,TTl ov edge
+535,Jan 07 At 20:00,Dallas,Washington,HOCKEY - NHL WINNING MARGIN,0.0,0.0,,0.0,TTl ov edge
+536,Jan 07 At 20:30,Calgary,Montreal,HOCKEY - NHL WINNING MARGIN,0.0,0.0,,0.0,TTl ov edge
+537,Jan 07 At 22:30,Ottawa,Utah,HOCKEY - NHL WINNING MARGIN,0.0,0.0,,0.0,TTl ov edge
+538,Jan 07 At 22:30,state Louis,Chicago,HOCKEY - NHL WINNING MARGIN,0.0,0.0,,0.0,TTl ov edge
+539,Jan 07 At 23:30,San Jose,Los Angeles,HOCKEY - NHL WINNING MARGIN,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Jason Robertson,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Wyatt Johnston,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Mikko Rantanen,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Roope Hintz,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Matt Duchene,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Miro Heiskanen,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Sam Steel,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Mavrik Bourque,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Thomas Harley,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Alex Ovechkin,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Dylan Strome,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Connor McMichael,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Ryan Leonard,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,An. Beauvillier,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Jakob Chychrun,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,Hendrix Lapierre,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+540,Jan 07 At 20:00,John Carlson,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Nazem Kadri,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Matt Coronato,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Jonathan Huberdeau,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Morgan Frost,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Blake Coleman,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Joel Farabee,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Yegor Sharangovich,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Mikael Backlund,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Rasmus Andersson,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,MacKenzie Weegar,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Cole Caufield,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Nick Suzuki,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Juraj Slafkovsky,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Ivan Demidov,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Brendan Gallagher,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Zack Bolduc,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Oliver Kapanen,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Lane Hutson,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Noah Dobson,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+541,Jan 07 At 20:30,Phillip Danault,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Brady Tkachuk,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Tim Stutzle,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Dylan Cozens,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Drake Batherson,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Fabian Zetterlund,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Ridly Greig,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,David Perron,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Claude Giroux,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Shane Pinto,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Jake Sanderson,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Clayton Keller,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Dylan Guenther,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,JJ Peterka,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Nick Schmaltz,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Barrett Hayton,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Jack McBain,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Lawson Crouse,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Mikhail Sergachev,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+542,Jan 07 At 22:30,Nate Schmidt,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Jordan Kyrou,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Brayden Schenn,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Pavel Buchnevich,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Jake Neighbours,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Robert Thomas,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Dalibor Dvorsky,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Justin Faulk,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Cam Fowler,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Tyler Bertuzzi,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Ryan Donato,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Teuvo Teravainen,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Andre Burakovsky,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Nick Foligno,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Ilya Mikheyev,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Artyom Levshunov,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+543,Jan 07 At 22:30,Jason Dickinson,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Macklin Celebrini,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Tyler Toffoli,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,William Eklund,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Jeff Skinner,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Alex Wennberg,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Collin Graf,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Adrian Kempe,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Kevin Fiala,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Anze Kopitar,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Quinton Byfield,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Alex Laferriere,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Andrei Kuzmenko,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Trevor Moore,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Corey Perry,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+544,Jan 07 At 23:30,Drew Doughty,Goals,HKY - GOAL SCORERS,0.0,0.0,,0.0,TTl ov edge
+545,Jan 07 At 20:00,Cleveland,Toronto,HOCKEY - AHL,0.0,5.5,,0.0,TTl ov edge
+546,Jan 07 At 20:00,Rochester,Syracuse,HOCKEY - AHL,0.0,5.5,,0.0,TTl ov edge
+547,Jan 07 At 20:00,Springfield,Utica,HOCKEY - AHL,0.0,5.5,,0.0,TTl ov edge
+548,Jan 07 At 20:00,Texas,Grand Rapids,HOCKEY - AHL,0.0,5.5,,0.0,TTl ov edge
+549,Jan 07 At 22:30,Henderson,Coachella Valley,HOCKEY - AHL,0.0,5.5,,0.0,TTl ov edge
+550,Jan 07 At 23:00,Bakersfield,Abbotsford,HOCKEY - AHL,0.0,6.0,,0.0,TTl ov edge
+551,Jan 07 At 23:00,Iowa,Ontario,HOCKEY - AHL,0.0,5.5,,0.0,TTl ov edge
+552,Jan 07 At 23:00,San Jose,San Diego,HOCKEY - AHL,0.0,5.5,,0.0,TTl ov edge
+591,Jan 07 At 20:00,Alex Ovechkin,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+592,Jan 07 At 20:00,Jakob Chychrun,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+593,Jan 07 At 20:00,Jason Robertson,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+594,Jan 07 At 20:00,Mikko Rantanen,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+595,Jan 07 At 20:30,Cole Caufield,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+596,Jan 07 At 20:30,Juraj Slafkovsky,Total Shots,HKY - TTL SHOTS,0.0,1.5,,0.0,TTl ov edge
+597,Jan 07 At 20:30,Nazem Kadri,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+598,Jan 07 At 20:30,Nick Suzuki,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+599,Jan 07 At 22:30,Brady Tkachuk,Total Shots,HKY - TTL SHOTS,0.0,3.5,,0.0,TTl ov edge
+600,Jan 07 At 22:30,Clayton Keller,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+601,Jan 07 At 22:30,Dylan Guenther,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+602,Jan 07 At 22:30,Jordan Kyrou,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+603,Jan 07 At 22:30,Tim Stutzle,Total Shots,HKY - TTL SHOTS,0.0,1.5,,0.0,TTl ov edge
+604,Jan 07 At 22:30,Tyler Bertuzzi,Total Shots,HKY - TTL SHOTS,0.0,1.5,,0.0,TTl ov edge
+605,Jan 07 At 23:30,Adrian Kempe,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+606,Jan 07 At 23:30,Kevin Fiala,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+607,Jan 07 At 23:30,Macklin Celebrini,Total Shots,HKY - TTL SHOTS,0.0,3.5,,0.0,TTl ov edge
+608,Jan 07 At 23:30,William Eklund,Total Shots,HKY - TTL SHOTS,0.0,2.5,,0.0,TTl ov edge
+736,Jan 07 At 20:00,Seattle,Boston,HOCKEY - PWHL,0.0,4.5,,0.0,TTl ov edge
+737,Jan 07 At 20:00,Seattle,Boston,HOCKEY - PWHL H2H,0.0,0.0,,0.0,TTl ov edge
 525,Jan 07 At 20:00,Dallas,Washington,HOCKEY - NHL,0.0,0.0,0.0,0.0,V 10+ edge
 526,Jan 07 At 20:30,Calgary,Montreal,HOCKEY - NHL,0.0,0.0,0.0,0.0,V 10+ edge
 527,Jan 07 At 22:30,Ottawa,Utah,HOCKEY - NHL,0.0,0.0,0.0,0.0,V 10+ edge
@@ -371,131 +499,3 @@
 544,Jan 07 At 23:30,Andrei Kuzmenko,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 10+edge
 544,Jan 07 At 23:30,Trevor Moore,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 10+edge
 544,Jan 07 At 23:30,Corey Perry,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 10+edge
-544,Jan 07 At 23:30,Drew Doughty,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 10+edge
-545,Jan 07 At 20:00,Cleveland,Toronto,HOCKEY - AHL,0.0,0.0,0.0,0.0,H 10+edge
-546,Jan 07 At 20:00,Rochester,Syracuse,HOCKEY - AHL,0.0,0.0,0.0,0.0,H 10+edge
-547,Jan 07 At 20:00,Springfield,Utica,HOCKEY - AHL,0.0,0.0,0.0,0.0,H 10+edge
-548,Jan 07 At 20:00,Texas,Grand Rapids,HOCKEY - AHL,0.0,0.0,0.0,0.0,H 10+edge
-549,Jan 07 At 22:30,Henderson,Coachella Valley,HOCKEY - AHL,0.0,0.0,0.0,0.0,H 10+edge
-550,Jan 07 At 23:00,Bakersfield,Abbotsford,HOCKEY - AHL,0.0,0.0,0.0,0.0,H 10+edge
-551,Jan 07 At 23:00,Iowa,Ontario,HOCKEY - AHL,0.0,0.0,0.0,0.0,H 10+edge
-552,Jan 07 At 23:00,San Jose,San Diego,HOCKEY - AHL,0.0,0.0,0.0,0.0,H 10+edge
-591,Jan 07 At 20:00,Alex Ovechkin,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-592,Jan 07 At 20:00,Jakob Chychrun,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-593,Jan 07 At 20:00,Jason Robertson,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-594,Jan 07 At 20:00,Mikko Rantanen,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-595,Jan 07 At 20:30,Cole Caufield,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-596,Jan 07 At 20:30,Juraj Slafkovsky,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-597,Jan 07 At 20:30,Nazem Kadri,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-598,Jan 07 At 20:30,Nick Suzuki,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-599,Jan 07 At 22:30,Brady Tkachuk,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-600,Jan 07 At 22:30,Clayton Keller,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-601,Jan 07 At 22:30,Dylan Guenther,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-602,Jan 07 At 22:30,Jordan Kyrou,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-603,Jan 07 At 22:30,Tim Stutzle,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-604,Jan 07 At 22:30,Tyler Bertuzzi,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-605,Jan 07 At 23:30,Adrian Kempe,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-606,Jan 07 At 23:30,Kevin Fiala,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-607,Jan 07 At 23:30,Macklin Celebrini,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-608,Jan 07 At 23:30,William Eklund,Total Shots,HKY - TTL SHOTS,0.0,0.0,0.0,0.0,H 10+edge
-736,Jan 07 At 20:00,Seattle,Boston,HOCKEY - PWHL,0.0,0.0,0.0,0.0,H 10+edge
-737,Jan 07 At 20:00,Seattle,Boston,HOCKEY - PWHL H2H,0.0,0.0,0.0,0.0,H 10+edge
-525,Jan 07 At 20:00,Dallas,Washington,HOCKEY - NHL,0.0,0.0,0.0,0.0,H 1-10 edge
-526,Jan 07 At 20:30,Calgary,Montreal,HOCKEY - NHL,0.0,0.0,0.0,0.0,H 1-10 edge
-527,Jan 07 At 22:30,Ottawa,Utah,HOCKEY - NHL,0.0,0.0,0.0,0.0,H 1-10 edge
-528,Jan 07 At 22:30,state Louis,Chicago,HOCKEY - NHL,0.0,0.0,0.0,0.0,H 1-10 edge
-529,Jan 07 At 23:30,San Jose,Los Angeles,HOCKEY - NHL,0.0,0.0,0.0,0.0,H 1-10 edge
-530,Jan 07 At 20:00,Dallas,Washington,HOCKEY - NHL H2H,0.0,0.0,0.0,0.0,H 1-10 edge
-531,Jan 07 At 20:30,Calgary,Montreal,HOCKEY - NHL H2H,0.0,0.0,0.0,0.0,H 1-10 edge
-532,Jan 07 At 22:30,Ottawa,Utah,HOCKEY - NHL H2H,0.0,0.0,0.0,0.0,H 1-10 edge
-533,Jan 07 At 22:30,state Louis,Chicago,HOCKEY - NHL H2H,0.0,0.0,0.0,0.0,H 1-10 edge
-534,Jan 07 At 23:30,San Jose,Los Angeles,HOCKEY - NHL H2H,0.0,0.0,0.0,0.0,H 1-10 edge
-535,Jan 07 At 20:00,Dallas,Washington,HOCKEY - NHL WINNING MARGIN,0.0,0.0,0.0,0.0,H 1-10 edge
-536,Jan 07 At 20:30,Calgary,Montreal,HOCKEY - NHL WINNING MARGIN,0.0,0.0,0.0,0.0,H 1-10 edge
-537,Jan 07 At 22:30,Ottawa,Utah,HOCKEY - NHL WINNING MARGIN,0.0,0.0,0.0,0.0,H 1-10 edge
-538,Jan 07 At 22:30,state Louis,Chicago,HOCKEY - NHL WINNING MARGIN,0.0,0.0,0.0,0.0,H 1-10 edge
-539,Jan 07 At 23:30,San Jose,Los Angeles,HOCKEY - NHL WINNING MARGIN,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Jason Robertson,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Wyatt Johnston,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Mikko Rantanen,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Roope Hintz,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Matt Duchene,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Miro Heiskanen,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Sam Steel,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Mavrik Bourque,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Thomas Harley,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Alex Ovechkin,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Dylan Strome,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Connor McMichael,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Ryan Leonard,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,An. Beauvillier,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Jakob Chychrun,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,Hendrix Lapierre,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-540,Jan 07 At 20:00,John Carlson,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Nazem Kadri,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Matt Coronato,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Jonathan Huberdeau,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Morgan Frost,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Blake Coleman,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Joel Farabee,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Yegor Sharangovich,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Mikael Backlund,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Rasmus Andersson,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,MacKenzie Weegar,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Cole Caufield,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Nick Suzuki,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Juraj Slafkovsky,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Ivan Demidov,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Brendan Gallagher,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Zack Bolduc,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Oliver Kapanen,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Lane Hutson,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Noah Dobson,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-541,Jan 07 At 20:30,Phillip Danault,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Brady Tkachuk,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Tim Stutzle,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Dylan Cozens,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Drake Batherson,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Fabian Zetterlund,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Ridly Greig,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,David Perron,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Claude Giroux,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Shane Pinto,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Jake Sanderson,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Clayton Keller,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Dylan Guenther,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,JJ Peterka,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Nick Schmaltz,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Barrett Hayton,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Jack McBain,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Lawson Crouse,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Mikhail Sergachev,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-542,Jan 07 At 22:30,Nate Schmidt,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Jordan Kyrou,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Brayden Schenn,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Pavel Buchnevich,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Jake Neighbours,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Robert Thomas,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Dalibor Dvorsky,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Justin Faulk,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Cam Fowler,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Tyler Bertuzzi,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Ryan Donato,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Teuvo Teravainen,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Andre Burakovsky,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Nick Foligno,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Ilya Mikheyev,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Artyom Levshunov,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-543,Jan 07 At 22:30,Jason Dickinson,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,Macklin Celebrini,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,Tyler Toffoli,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,William Eklund,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,Jeff Skinner,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,Alex Wennberg,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,Collin Graf,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,Adrian Kempe,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,Kevin Fiala,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,Anze Kopitar,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,Quinton Byfield,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,Alex Laferriere,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
-544,Jan 07 At 23:30,Andrei Kuzmenko,Goals,HKY - GOAL SCORERS,0.0,0.0,0.0,0.0,H 1-10 edge
