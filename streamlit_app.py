@@ -26,10 +26,6 @@ def raw_at(ref: str, path: str) -> str:
 
 @st.cache_data(ttl=30)
 def latest_sha_for_path(path: str) -> str:
-    """
-    Returns the most recent commit SHA that touched a file path.
-    Using SHA makes the raw URL immutable -> no stale caching.
-    """
     r = requests.get(
         API_COMMITS,
         params={"path": path, "sha": BRANCH, "per_page": 1},
@@ -55,7 +51,6 @@ def fetch_csv(url: str) -> pd.DataFrame:
     return pd.read_csv(StringIO(r.text))
 
 
-# ----- Refresh control -----
 if "refresh_token" not in st.session_state:
     st.session_state.refresh_token = str(int(time.time()))
 
@@ -65,24 +60,18 @@ if st.button("Refresh now"):
     st.rerun()
 
 
-def find_percent_cols(cols) -> list:
-    """
-    Detect Win% and Edge columns (case/space insensitive).
-    Matches:
-      - Win%, Win %, win%
-      - Edge, Edge%, edge
-    """
-    out = []
+def normalize_percent_columns(df: pd.DataFrame, cols: list) -> pd.DataFrame:
+    # Accept both 0.6351 and 63.51 and display as %
     for c in cols:
-        key = str(c).strip().lower().replace(" ", "")
-        if key in ("win%", "winpct") or "win%" in key or key == "win":
-            out.append(c)
-        elif key == "edge" or "edge%" in key or "vedge" in key:
-            out.append(c)
-    return out
+        s = pd.to_numeric(df[c], errors="coerce")
+        if s.dropna().size and s.dropna().median() > 1:
+            df[c] = s / 100.0
+        else:
+            df[c] = s
+    return df
 
 
-# ----- Load latest data from immutable commit SHAs -----
+# Load using immutable SHA urls (best anti-cache)
 try:
     ts_sha = latest_sha_for_path(TS_PATH)
     csv_sha = latest_sha_for_path(CSV_PATH)
@@ -94,30 +83,32 @@ try:
     df = fetch_csv(raw_at(csv_sha, CSV_PATH))
 
 except Exception:
-    # Fallback: branch raw + cache-buster token
+    # fallback: branch url with cache buster
     token = st.session_state.refresh_token
     published = fetch_text(raw_at(BRANCH, TS_PATH) + f"?v={token}")
     st.caption(f"Published: {published}")
     df = fetch_csv(raw_at(BRANCH, CSV_PATH) + f"?v={token}")
 
-
-# ----- Cleanup + formatting -----
-# Drop "Unnamed: x" columns that come from Excel exports
+# Drop Excel "Unnamed" columns
 df = df.loc[:, ~df.columns.astype(str).str.match(r"^Unnamed", case=False, na=False)]
 
-pct_cols = find_percent_cols(df.columns)
+# Detect Win% + Edge columns
+percent_cols = []
+for c in df.columns:
+    key = str(c).strip().lower().replace(" ", "")
+    if key in ("win%", "winpct") or "win%" in key:
+        percent_cols.append(c)
+    if key == "edge" or key == "edge%" or "edge%" in key:
+        percent_cols.append(c)
 
-# Normalize percent columns to 0-1 if needed
-for c in pct_cols:
-    s = pd.to_numeric(df[c], errors="coerce")
-    if s.dropna().size and s.dropna().median() > 1:
-        df[c] = s / 100.0
-    else:
-        df[c] = s
+# unique preserve order
+seen = set()
+percent_cols = [c for c in percent_cols if not (c in seen or seen.add(c))]
 
-# Display: format percent columns as 12.34%
-if pct_cols:
-    styler = df.style.format({c: "{:.2%}" for c in pct_cols})
-    st.dataframe(styler, use_container_width=True, hide_index=True)
+df = normalize_percent_columns(df, percent_cols)
+
+if percent_cols:
+    styler = df.style.format({c: "{:.2%}" for c in percent_cols})
+    st.dataframe(styler, width="stretch", hide_index=True)
 else:
-    st.dataframe(df, use_container_width=True, hide_index=True)
+    st.dataframe(df, width="stretch", hide_index=True)
