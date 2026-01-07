@@ -51,6 +51,31 @@ def fetch_csv(url: str) -> pd.DataFrame:
     return pd.read_csv(StringIO(r.text))
 
 
+def col_exists(df: pd.DataFrame, name: str) -> str | None:
+    # exact match first, then case-insensitive match
+    if name in df.columns:
+        return name
+    low = {str(c).strip().lower(): c for c in df.columns}
+    return low.get(name.strip().lower())
+
+
+def normalize_percent_series(s: pd.Series) -> pd.Series:
+    """
+    Accept both 0.2877 and 28.77 from Excel export and convert to 0-1 fraction.
+    """
+    s = pd.to_numeric(s, errors="coerce")
+    if s.dropna().size and s.dropna().median() > 1:
+        return s / 100.0
+    return s
+
+
+def normalize_number_series(s: pd.Series) -> pd.Series:
+    """
+    Ensure numbers are numeric (so they don't get treated as % / strings).
+    """
+    return pd.to_numeric(s, errors="coerce")
+
+
 if "refresh_token" not in st.session_state:
     st.session_state.refresh_token = str(int(time.time()))
 
@@ -58,17 +83,6 @@ if st.button("Refresh now"):
     st.cache_data.clear()
     st.session_state.refresh_token = str(int(time.time()))
     st.rerun()
-
-
-def normalize_percent_columns(df: pd.DataFrame, cols: list) -> pd.DataFrame:
-    # Accept both 0.6351 and 63.51 and display as %
-    for c in cols:
-        s = pd.to_numeric(df[c], errors="coerce")
-        if s.dropna().size and s.dropna().median() > 1:
-            df[c] = s / 100.0
-        else:
-            df[c] = s
-    return df
 
 
 # Load using immutable SHA urls (best anti-cache)
@@ -92,23 +106,33 @@ except Exception:
 # Drop Excel "Unnamed" columns
 df = df.loc[:, ~df.columns.astype(str).str.match(r"^Unnamed", case=False, na=False)]
 
-# Detect Win% + Edge columns
-percent_cols = []
-for c in df.columns:
-    key = str(c).strip().lower().replace(" ", "")
-    if key in ("win%", "winpct") or "win%" in key:
-        percent_cols.append(c)
-    if key == "edge" or key == "edge%" or "edge%" in key:
-        percent_cols.append(c)
+# ---- Force specific formatting rules ----
+win_col = col_exists(df, "Win%")
+edge_col = col_exists(df, "Edge")
+odds_col = col_exists(df, "Odds")
+prop_col = col_exists(df, "Prop")
 
-# unique preserve order
-seen = set()
-percent_cols = [c for c in percent_cols if not (c in seen or seen.add(c))]
+# Percent columns
+percent_cols = [c for c in [win_col, edge_col] if c is not None]
 
-df = normalize_percent_columns(df, percent_cols)
+# Number columns that MUST NOT be percent
+number_cols = [c for c in [odds_col, prop_col] if c is not None]
 
-if percent_cols:
-    styler = df.style.format({c: "{:.2%}" for c in percent_cols})
-    st.dataframe(styler, width="stretch", hide_index=True)
-else:
-    st.dataframe(df, width="stretch", hide_index=True)
+# Normalize values
+for c in percent_cols:
+    df[c] = normalize_percent_series(df[c])
+
+for c in number_cols:
+    df[c] = normalize_number_series(df[c])
+
+# Build formatter: only Win% and Edge as %, Odds/Prop as numbers
+fmt = {}
+for c in percent_cols:
+    fmt[c] = "{:.2%}"
+
+for c in number_cols:
+    # show up to 6 decimals but trim trailing zeros visually
+    fmt[c] = "{:.6f}"
+
+styler = df.style.format(fmt)
+st.dataframe(styler, width="stretch", hide_index=True)
