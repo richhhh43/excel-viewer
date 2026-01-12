@@ -1,29 +1,15 @@
 @echo on
 setlocal
 
-echo -----------------------------
-echo publish.bat starting...
-echo Script folder: %~dp0
-echo Current folder BEFORE cd: %cd%
-echo -----------------------------
-
+REM Go to this repo folder
 cd /d "%~dp0"
-echo Current folder AFTER cd: %cd%
 
-echo.
-echo Checking python...
-where python
-python --version
+echo Running publisher from: %cd%
 echo.
 
-echo Running publish_sheet.py...
-python publish_sheet.py > publish_log.txt 2>&1
+REM Run and SHOW output live (no redirect)
+python publish_sheet.py
 
 echo.
-echo -------- publish_log.txt --------
-type publish_log.txt
-echo -------- end log --------
-echo.
-
-echo Done. Log saved at: %cd%\publish_log.txt
+echo Finished running publish_sheet.py
 pause
