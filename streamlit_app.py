@@ -1,76 +1,21 @@
 import time
-from io import StringIO
+from pathlib import Path
+from urllib.parse import quote
 
 import pandas as pd
-import requests
 import streamlit as st
 
 st.set_page_config(page_title="Excel Viewer", layout="wide")
 st.title("Excel Viewer")
 
-# ========= EDIT THESE (your repo) =========
-OWNER = "richhhh43"
-REPO = "excel-viewer"
-BRANCH = "main"
+CSV_PATH = Path("data/latest.csv")
 
-CSV_PATH = "data/latest.csv"
-TS_PATH = "data/updated_at.txt"
-# =========================================
-
-API_COMMITS = f"https://api.github.com/repos/{OWNER}/{REPO}/commits"
-
-
-def raw_at(ref: str, path: str) -> str:
-    return f"https://raw.githubusercontent.com/{OWNER}/{REPO}/{ref}/{path}"
-
-
+# Cache the CSV load (and allow manual refresh)
 @st.cache_data(ttl=30)
-def latest_sha_for_path(path: str) -> str:
-    r = requests.get(
-        API_COMMITS,
-        params={"path": path, "sha": BRANCH, "per_page": 1},
-        timeout=20,
-        headers={"Cache-Control": "no-cache", "Pragma": "no-cache"},
-    )
-    r.raise_for_status()
-    data = r.json()
-    return data[0]["sha"]
-
-
-@st.cache_data(ttl=30)
-def fetch_text(url: str) -> str:
-    r = requests.get(url, timeout=20, headers={"Cache-Control": "no-cache", "Pragma": "no-cache"})
-    r.raise_for_status()
-    return r.text.strip()
-
-
-@st.cache_data(ttl=30)
-def fetch_csv(url: str) -> pd.DataFrame:
-    r = requests.get(url, timeout=20, headers={"Cache-Control": "no-cache", "Pragma": "no-cache"})
-    r.raise_for_status()
-    return pd.read_csv(StringIO(r.text))
-
-
-def col_exists(df: pd.DataFrame, name: str):
-    if name in df.columns:
-        return name
-    low = {str(c).strip().lower(): c for c in df.columns}
-    return low.get(name.strip().lower())
-
-
-def normalize_percent_series(s: pd.Series) -> pd.Series:
-    """
-    Accept both 0.2877 and 28.77 from Excel export and convert to 0-1 fraction.
-    """
-    s = pd.to_numeric(s, errors="coerce")
-    if s.dropna().size and s.dropna().median() > 1:
-        return s / 100.0
-    return s
-
-
-def normalize_number_series(s: pd.Series) -> pd.Series:
-    return pd.to_numeric(s, errors="coerce")
-
+def load_csv(path: Path) -> pd.DataFrame:
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path)
 
 if "refresh_token" not in st.session_state:
     st.session_state.refresh_token = str(int(time.time()))
@@ -80,55 +25,62 @@ if st.button("Refresh now"):
     st.session_state.refresh_token = str(int(time.time()))
     st.rerun()
 
+df = load_csv(CSV_PATH)
 
-# Load using immutable SHA urls (best anti-cache)
-try:
-    ts_sha = latest_sha_for_path(TS_PATH)
-    csv_sha = latest_sha_for_path(CSV_PATH)
+# Show published time (file modified time)
+if CSV_PATH.exists():
+    st.caption(f"Published: {time.strftime('%Y-%m-%d %H:%M:%S %Z', time.localtime(CSV_PATH.stat().st_mtime))}")
+else:
+    st.warning(f"CSV not found: {CSV_PATH.as_posix()}")
 
-    published = fetch_text(raw_at(ts_sha, TS_PATH))
-    st.caption(f"Published: {published}")
-    st.caption(f"Data commit: {csv_sha[:8]}")
+if df.empty:
+    st.stop()
 
-    df = fetch_csv(raw_at(csv_sha, CSV_PATH))
+# -----------------------------
+# QR IMAGE COLUMN
+# -----------------------------
+# Your screenshot shows a text column named exactly "QR Code"
+# containing payload text like: ALC|EVT:484|DT:...
+TEXT_COL = "QR Code"
 
-except Exception:
-    token = st.session_state.refresh_token
-    published = fetch_text(raw_at(BRANCH, TS_PATH) + f"?v={token}")
-    st.caption(f"Published: {published}")
-    df = fetch_csv(raw_at(BRANCH, CSV_PATH) + f"?v={token}")
+# If your publisher named it differently, we’ll also support common fallbacks.
+fallback_cols = ["qr_text", "qr_payload", "QR_TEXT"]
 
-# Drop Excel "Unnamed" columns
-df = df.loc[:, ~df.columns.astype(str).str.match(r"^Unnamed", case=False, na=False)]
+qr_source_col = None
+if TEXT_COL in df.columns:
+    qr_source_col = TEXT_COL
+else:
+    for c in fallback_cols:
+        if c in df.columns:
+            qr_source_col = c
+            break
 
-# Columns (case-insensitive)
-win_col = col_exists(df, "Win%")
-edge_col = col_exists(df, "Edge")
-odds_col = col_exists(df, "Odds")
-prop_col = col_exists(df, "Prop")
+if qr_source_col:
+    # Convert payload text into an image URL that returns a QR PNG
+    # (QuickChart creates the QR image on the fly)
+    df["QR"] = df[qr_source_col].fillna("").astype(str).apply(
+        lambda s: "https://quickchart.io/qr?size=180&text=" + quote(s)
+    )
 
-# Normalize values
-if win_col:
-    df[win_col] = normalize_percent_series(df[win_col])
-if edge_col:
-    df[edge_col] = normalize_percent_series(df[edge_col])
+    # Hide the long payload text column so it doesn't stretch the table
+    df = df.drop(columns=[qr_source_col])
 
-if odds_col:
-    df[odds_col] = normalize_number_series(df[odds_col])
-if prop_col:
-    df[prop_col] = normalize_number_series(df[prop_col])
+# Ensure QR is the LAST column
+if "QR" in df.columns:
+    cols = [c for c in df.columns if c != "QR"] + ["QR"]
+    df = df[cols]
 
-# Format: Win%/Edge as %, Odds 2dp, Prop 1dp
-fmt = {}
-if win_col:
-    fmt[win_col] = "{:.2%}"
-if edge_col:
-    fmt[edge_col] = "{:.2%}"
-if odds_col:
-    fmt[odds_col] = "{:.2f}"   # 3.95
-if prop_col:
-    fmt[prop_col] = "{:.1f}"   # 232.5
+# -----------------------------
+# DISPLAY
+# -----------------------------
+column_config = {}
+if "QR" in df.columns:
+    column_config["QR"] = st.column_config.ImageColumn("QR", width="small")
 
-styler = df.style.format(fmt)
-st.dataframe(styler, width="stretch", hide_index=True)
+st.dataframe(
+    df,
+    column_config=column_config,
+    hide_index=True,
+    use_container_width=True,
+)
 
