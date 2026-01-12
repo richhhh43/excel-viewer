@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "C:\Users\rich_\OneDrive\Documents\GitHub\excel-viewer\publish_sheet.py", line 158, in <module>
+    main()
+  File "C:\Users\rich_\OneDrive\Documents\GitHub\excel-viewer\publish_sheet.py", line 42, in main
+    raise ValueError(f'Sheet "{SHEET_NAME}" not found. Sheets: {wb.sheetnames}')
+ValueError: Sheet "edges" not found. Sheets: ['Config', 'Pinnacle Config', 'Sort', 'Edges', 'Sheet1', 'Pinnacle odds', 'Alc lines']

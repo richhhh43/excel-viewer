@@ -6,153 +6,107 @@ from pathlib import Path
 import pandas as pd
 from openpyxl import load_workbook
 
-# =========================
-# CONFIG (EDIT THESE 2)
-# =========================
 EXCEL_PATH = r"C:\Users\rich_\ncaa 1.xlsm"
 SHEET_NAME = "edges"
-
 OUT_CSV = Path("data/latest.csv")
 
-# If Column K is your wager amount, set this to the header name you use in Excel.
-# If you don't have a header on K, this script will name it "Wager".
-WAGER_HEADER_NAME = "Wager"
-
-
-def find_header_row(ws, max_scan_rows=15):
-    """Find the row that contains 'Event #' (your header row)."""
-    for r in range(1, max_scan_rows + 1):
-        v = ws[f"A{r}"].value
-        if isinstance(v, str) and v.strip().lower() in ("event #", "event#", "event"):
-            return r
-    return 1  # fallback
-
+MAX_ROWS = 2000        # <-- hard stop so it can't hang forever
+MAX_SCAN_ROWS = 20     # header scan
+LAST_COL = 11          # A..K
 
 def to_str(x):
-    if x is None:
-        return ""
-    return str(x).strip()
+    return "" if x is None else str(x).strip()
 
+def find_header_row(ws):
+    for r in range(1, MAX_SCAN_ROWS + 1):
+        v = ws[f"A{r}"].value
+        if isinstance(v, str) and v.strip().lower().replace(" ", "") in ("event#", "event"):
+            return r
+    return 1
 
 def main():
+    print("[publish] starting...")
     t0 = time.time()
 
-    wb = load_workbook(EXCEL_PATH, data_only=True, keep_vba=True)
+    print("[publish] loading workbook (this can take a bit on big xlsm)...")
+    wb = load_workbook(EXCEL_PATH, data_only=True, keep_vba=True, read_only=True)
     if SHEET_NAME not in wb.sheetnames:
         raise ValueError(f'Sheet "{SHEET_NAME}" not found. Sheets: {wb.sheetnames}')
     ws = wb[SHEET_NAME]
 
     header_row = find_header_row(ws)
+    print(f"[publish] header_row = {header_row}")
 
-    # Read headers A:K
+    # Read headers A..K
     headers = []
-    for col in range(1, 12):  # 1..11 => A..K
-        h = ws.cell(row=header_row, column=col).value
-        headers.append(to_str(h))
+    for c in range(1, LAST_COL + 1):
+        h = ws.cell(row=header_row, column=c).value
+        headers.append(to_str(h) or f"Col{c}")
 
-    # If K header is blank, force it to "Wager"
-    if not headers[10]:
-        headers[10] = WAGER_HEADER_NAME
-
-    # Normalize/rename duplicates safely
-    # (Excel sometimes has 2 columns both named "Market")
+    # Make headers unique (Market, Market.1, etc.)
     seen = {}
-    safe_headers = []
+    cols = []
     for h in headers:
-        base = h if h else "Col"
-        if base not in seen:
-            seen[base] = 0
-            safe_headers.append(base)
+        if h not in seen:
+            seen[h] = 0
+            cols.append(h)
         else:
-            seen[base] += 1
-            safe_headers.append(f"{base}.{seen[base]}")
+            seen[h] += 1
+            cols.append(f"{h}.{seen[h]}")
 
-    # Build rows until Event # blank
+    print(f"[publish] columns: {cols}")
+
+    # Pull rows until blank A OR MAX_ROWS
     rows = []
-    r = header_row + 1
-    while True:
-        event = ws[f"A{r}"].value
-        if event in (None, ""):
+    start = header_row + 1
+    for r in range(start, start + MAX_ROWS):
+        a = ws.cell(row=r, column=1).value
+        if a in (None, ""):
+            print(f"[publish] stop at row {r} (blank Event#).")
             break
 
         row = {}
-        for col in range(1, 12):  # A..K
-            row[safe_headers[col - 1]] = ws.cell(row=r, column=col).value
+        for c in range(1, LAST_COL + 1):
+            row[cols[c-1]] = ws.cell(row=r, column=c).value
         rows.append(row)
-        r += 1
+
+        if (r - start + 1) % 250 == 0:
+            print(f"[publish] read {r - start + 1} rows...")
 
     df = pd.DataFrame(rows)
+    print(f"[publish] df rows = {len(df)}")
 
-    # ---------
-    # IMPORTANT: build QR Code text using Column K (Wager)
-    # ---------
-    # Expected column names after safe header handling:
-    # A: "Event #"
-    # B: "Date and Time"
-    # C: "Visitor"
-    # D: "Home"
-    # E: "Market"
-    # F: "Odds"
-    # G: "Prop"
-    # H: "Win%"
-    # I: "Edge"
-    # J: (often "Market.1" or similar if you had 2 "Market" headers)
-    # K: "Wager" (or whatever is in your header row)
-    #
-    # We’ll detect the "pick" column automatically as the last "Market*" column if it exists.
-    wager_col = headers[10] if headers[10] else WAGER_HEADER_NAME
-    if wager_col not in df.columns:
-        # If it got renamed due to duplication, find by position (K)
-        wager_col = safe_headers[10]
+    # Identify wager column (K)
+    wager_col = cols[10]  # column K name (whatever header is)
+    # Identify pick column: prefer Market.1 if present, else any column starting with Market
+    pick_col = "Market.1" if "Market.1" in df.columns else next((c for c in df.columns if c.lower().startswith("market")), "")
 
-    # Find a "pick" column (the second Market column) if present
-    pick_col = None
-    market_like = [c for c in df.columns if c.lower().startswith("market")]
-    if len(market_like) >= 2:
-        pick_col = market_like[-1]  # usually "Market.1"
-    elif len(market_like) == 1:
-        pick_col = market_like[0]
-
-    def build_qr(row):
-        evt = to_str(row.get("Event #", ""))
-        dt  = to_str(row.get("Date and Time", ""))
-        vis = to_str(row.get("Visitor", ""))
-        home= to_str(row.get("Home", ""))
-        mkt = to_str(row.get("Market", ""))
-        odds= to_str(row.get("Odds", ""))
-        prop= to_str(row.get("Prop", ""))
-        win = to_str(row.get("Win%", ""))
-        edge= to_str(row.get("Edge", ""))
-        pick= to_str(row.get(pick_col, "")) if pick_col else ""
-        wager = to_str(row.get(wager_col, ""))
-
-        # This is YOUR tracking payload (not a redeem/validation code)
+    # Build QR payload text column
+    def qr_row(x):
         return (
-            f"ALC|EVT:{evt}"
-            f"|DT:{dt}"
-            f"|V:{vis}"
-            f"|H:{home}"
-            f"|M:{mkt}"
-            f"|OD:{odds}"
-            f"|P:{prop}"
-            f"|WIN:{win}"
-            f"|EDGE:{edge}"
-            f"|PICK:{pick}"
-            f"|WAGER:${wager}"
+            f"ALC|EVT:{to_str(x.get('Event #')) or to_str(x.get('Event#')) or to_str(x.get('Event'))}"
+            f"|DT:{to_str(x.get('Date and Time'))}"
+            f"|V:{to_str(x.get('Visitor'))}"
+            f"|H:{to_str(x.get('Home'))}"
+            f"|M:{to_str(x.get('Market'))}"
+            f"|OD:{to_str(x.get('Odds'))}"
+            f"|P:{to_str(x.get('Prop'))}"
+            f"|WIN:{to_str(x.get('Win%'))}"
+            f"|EDGE:{to_str(x.get('Edge'))}"
+            f"|PICK:{to_str(x.get(pick_col))}"
+            f"|WAGER:${to_str(x.get(wager_col))}"
         )
 
-    df["QR Code"] = df.apply(build_qr, axis=1)
+    df["QR Code"] = df.apply(lambda r: qr_row(r.to_dict()), axis=1)
 
-    # Make sure output folder exists
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
-
-    # Save CSV
     df.to_csv(OUT_CSV, index=False)
 
-    print(f"Saved: {OUT_CSV.as_posix()}  rows={len(df)}  in {time.time()-t0:.2f}s")
-    print(f"Wager column used: {wager_col}")
-    print(f"Pick column used: {pick_col}")
-
+    print(f"[publish] saved: {OUT_CSV.as_posix()}")
+    print(f"[publish] wager column (K): {wager_col}")
+    print(f"[publish] pick column: {pick_col}")
+    print(f"[publish] done in {time.time()-t0:.2f}s")
 
 if __name__ == "__main__":
     main()
+
