@@ -9,7 +9,7 @@ st.title("Excel Viewer")
 
 CSV_PATH = Path("data/latest.csv")
 
-@st.cache_data(ttl=30)
+@st.cache_data(ttl=60)
 def load_csv():
     if not CSV_PATH.exists():
         return pd.DataFrame()
@@ -28,4 +28,15 @@ if df.empty:
     st.warning("No data yet. Run publish.bat to generate data/latest.csv")
     st.stop()
 
-st.dataframe(df, hide_index=True, use_container_width=True)
+# Speed controls
+show_n = st.selectbox("Rows to show", [100, 250, 500, 1000, 2000, 5000], index=2)
+
+# show top rows only (fast)
+df_show = df.head(int(show_n))
+
+st.data_editor(
+    df_show,
+    hide_index=True,
+    use_container_width=True,
+    disabled=True
+)
