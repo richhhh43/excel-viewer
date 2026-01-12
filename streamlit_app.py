@@ -59,7 +59,7 @@ if qr_source_col:
     # Convert payload text into an image URL that returns a QR PNG
     # (QuickChart creates the QR image on the fly)
     df["QR"] = df[qr_source_col].fillna("").astype(str).apply(
-        lambda s: "https://quickchart.io/qr?size=180&text=" + quote(s)
+        lambda s: "https://quickchart.io/qr?size=240&text=" + quote(s)
     )
 
     # Hide the long payload text column so it doesn't stretch the table
