@@ -7,15 +7,12 @@ from pathlib import Path
 import pandas as pd
 from openpyxl import load_workbook
 
-# =========================
-# CONFIG
-# =========================
 EXCEL_PATH = r"C:\Users\rich_\ncaa 1.xlsm"
 SHEET_NAME = "Edges"          # case-sensitive
 OUT_CSV = Path("data/latest.csv")
 
-MAX_ROWS = 8000               # cap
-LAST_COL = 10                 # A..J ONLY (no Wager, no QR)
+MAX_ROWS = 8000
+LAST_COL = 10                # A..J only (no wager, no QR)
 
 def s(x):
     return "" if x is None else str(x).strip()
@@ -51,6 +48,19 @@ def make_unique(headers):
             out.append(f"{base}.{seen[base]}")
     return out
 
+def fmt_pct(x):
+    """Excel stores 28.04% as 0.2804. Convert to '28.04%'."""
+    if x is None or x == "":
+        return ""
+    txt = str(x).strip().replace("%", "")
+    try:
+        v = float(txt)
+    except Exception:
+        return s(x)
+    if 0 <= v <= 1:
+        v *= 100.0
+    return f"{v:.2f}%"
+
 def main():
     t0 = time.time()
     print("[publish] starting...")
@@ -68,6 +78,7 @@ def main():
     for c in range(1, LAST_COL + 1):
         headers.append(s(ws.cell(row=header_row, column=c).value) or f"Col{c}")
     cols = make_unique(headers)
+    print(f"[publish] columns: {cols}")
 
     rows = []
     start = header_row + 1
@@ -94,6 +105,13 @@ def main():
             print(f"[publish] scanned {i} rows... kept {len(rows)}")
 
     df = pd.DataFrame(rows)
+
+    # Force Win% and Edge to display like your screenshot
+    if "Win%" in df.columns:
+        df["Win%"] = df["Win%"].apply(fmt_pct)
+    if "Edge" in df.columns:
+        df["Edge"] = df["Edge"].apply(fmt_pct)
+
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(OUT_CSV, index=False)
 
