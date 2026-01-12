@@ -7,10 +7,10 @@ import pandas as pd
 from openpyxl import load_workbook
 
 EXCEL_PATH = r"C:\Users\rich_\ncaa 1.xlsm"
-SHEET_NAME = "edges"
+SHEET_NAME = "Edges"
 OUT_CSV = Path("data/latest.csv")
 
-MAX_ROWS = 2000        # <-- hard stop so it can't hang forever
+MAX_ROWS = 600        # <-- hard stop so it can't hang forever
 MAX_SCAN_ROWS = 20     # header scan
 LAST_COL = 11          # A..K
 
